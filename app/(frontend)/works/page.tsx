@@ -1,6 +1,9 @@
 import { prisma } from '@/lib/prisma'
 import WorksClient from './WorksClient'
 
+// 确保每次请求都从数据库读取最新数据，不使用缓存
+export const dynamic = 'force-dynamic'
+
 export default async function WorksPage() {
   // 获取所有分类（包括子分类）
   const categories = await prisma.category.findMany({

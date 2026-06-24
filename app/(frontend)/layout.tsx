@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { prisma } from '@/lib/prisma'
 
+// 确保每次请求都从数据库读取最新数据，不使用缓存
+export const dynamic = 'force-dynamic'
+
 export default async function FrontendLayout({
   children,
 }: {

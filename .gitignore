@@ -40,3 +40,7 @@ next-env.d.ts
 # IDE
 .vscode/
 .idea/
+
+# migration temp files
+migrate-to-pg.js
+migrate-data.json
