@@ -17,7 +17,6 @@ export async function GET(request: NextRequest) {
       id: w.id,
       title: w.title,
       slug: w.slug,
-      status: w.status,
       category: {
         name: w.category.name,
       },

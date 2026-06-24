@@ -43,9 +43,3 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// 禁用默认 body parser，让我们可以读取 FormData
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}

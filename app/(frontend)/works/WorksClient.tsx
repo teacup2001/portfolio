@@ -7,14 +7,22 @@ interface Category {
   id: string
   name: string
   parentId: string | null
-  children: Category[]
+  slug: string
+  sortOrder: number
+  children: {
+    id: string
+    name: string
+    parentId: string | null
+    slug: string
+    sortOrder: number
+  }[]
 }
 
 interface Work {
   id: string
   title: string
   slug: string
-  date: string
+  date: Date
   category: {
     id: string
     name: string
@@ -29,7 +37,11 @@ interface Work {
 
 interface WorksClientProps {
   categories: Category[]
-  allCategories: Category[] // 包括所有分类（用于查找父类）
+  allCategories: {
+    id: string
+    name: string
+    parentId: string | null
+  }[]
   initialWorks: Work[]
 }
 
@@ -67,7 +79,13 @@ export default function WorksClient({ categories, allCategories, initialWorks }:
   const parentCategories = categories.filter(c => !c.parentId)
   
   // 当前显示的小类筛选
-  const [childFilters, setChildFilters] = useState<Category[]>(() => {
+  const [childFilters, setChildFilters] = useState<{
+    id: string
+    name: string
+    parentId: string | null
+    slug: string
+    sortOrder: number
+  }[]>(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search)
       const categoryId = params.get('category')
