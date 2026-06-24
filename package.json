@@ -21,19 +21,15 @@
     "sharp": "^0.35.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "4.3.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
     "prisma": "6.19.0",
-    "tailwindcss": "^4",
+    "tailwindcss": "4.3.1",
     "tsx": "^4.22.4",
     "typescript": "^5"
-  },
-  "optionalDependencies": {
-    "lightningcss-linux-x64-gnu": "1.32.0",
-    "lightningcss-win32-x64-msvc": "1.32.0"
   }
 }
